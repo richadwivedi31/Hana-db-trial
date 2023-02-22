@@ -1,0 +1,17 @@
+COLUMN TABLE "product_details" (
+    "ID" INTEGER GENERATED ALWAYS AS IDENTITY (START WITH 1 INCREMENT BY 1) NOT NULL,
+    "Manufacturer" nvarchar(100),	
+    "Model_Name" nvarchar(100),
+    "Category" nvarchar(100),	
+    "Screen_Size" nvarchar(100), 
+    "Screen" nvarchar(100),	
+    "CPU" nvarchar(100),	
+    "RAM" nvarchar(100),	
+    "Storage" nvarchar(100),	
+    "GPU" nvarchar(100),	
+    "Operating_System" nvarchar(100),	
+    "Operating_System_Version" nvarchar(100),	
+    "Weight" nvarchar(100),	
+    "Price_In_Euros" INTEGER,
+    PRIMARY KEY ("ID")
+    )

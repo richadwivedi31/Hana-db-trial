@@ -1,0 +1,22 @@
+PROCEDURE "top_n_rows"() 
+  LANGUAGE SQLSCRIPT 
+  SQL SECURITY INVOKER 
+  --DEFAULT SCHEMA <default_schema_name>
+  READS SQL DATA AS 
+BEGIN
+  SELECT TOP 10 "ID",
+    "Manufacturer",
+    "Model_Name",
+    "Category",
+    "Screen_Size",
+    "Screen",
+    "CPU",
+    "RAM",
+    "Storage",
+    "GPU",
+    "Operating_System",
+    "Operating_System_Version",
+    "Weight",
+    "Price_In_Euros"
+  FROM "product_details";
+END
