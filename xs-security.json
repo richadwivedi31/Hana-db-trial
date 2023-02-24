@@ -1,0 +1,14 @@
+{
+  "scopes": [],
+  "attributes": [],
+  "role-templates": [],
+  "authorities-inheritance": false,
+  "oauth2-configuration": {
+    "token-validity": 604800,
+    "refresh-token-validity": 2592000,
+    "redirect-uris": [
+      "https://b75a08fctrial-dev-dm.cfapps.us10-001.hana.ondemand.com/**"
+    ]
+  }
+}
+

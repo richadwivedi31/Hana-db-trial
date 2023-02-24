@@ -11,11 +11,17 @@ modules:
           TARGET_CONTAINER: ~{hdi-container-name}
     parameters:
       buildpack: nodejs_buildpack
-  - name: package-srv
-    type: nodejs
+
+  - name: dm
+    type: approuter.nodejs
+    path: app/ # from cds.env.folders. Consider also cds.env.build.target -> gen/app
+    parameters:
+      keep-existing-routes: true
+      disk-quota: 256M
+      memory: 256M
     requires:
-      - name: package-db
-      - name: hdi_db
+
+      - name: dm-auth
 resources:
   - name: hdi_db
     type: com.sap.xs.hdi-container
@@ -24,3 +30,12 @@ resources:
     parameters:
       service: hana
       service-plan: hdi-shared
+  - name: dm-auth
+    type: org.cloudfoundry.managed-service
+    parameters:
+      service: xsuaa
+      service-plan: application
+      path: ./xs-security.json
+      config:
+        xsappname: dm-${org}-${space}
+        tenant-mode: dedicated
